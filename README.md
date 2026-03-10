@@ -2,6 +2,9 @@
 # PL:
 Pakiet programów służących do edytowania pliku `.par` z gry **KnightShift**.
 
+Kompilacja najnowszej wersji wymaga skompilowanej statycznej biblioteki `KsUtils`.<br>
+[Link](https://github.com/A-t-l-as/LibKsUtils)<br>
+
 # Export pliku .par za pomocą PARex
 
 **PARex** jest to program służący do eksportu pliku `.par` z
@@ -135,6 +138,9 @@ notatnik.\
 
 # ENG:
 A package of programs for editing `.par` files from the game **KnightShift**.
+
+Compiling the latest version requires the compiled static library `KsUtils`.<br>
+[Link](https://github.com/A-t-l-as/LibKsUtils)<br>
 
 # Exporting a .par file using PARex
 
