@@ -1,11 +1,13 @@
 #ifndef PAR_HEADER_H
 #define PAR_HEADER_H
 
+#include "Compilator/CompilatorStrings.hpp"
 #include "File/BinFile.hpp"
 #include "File/CppFile.hpp"
 #include <array>
 #include <cstdint>
 #include "PartOfPar.hpp"
+#include "../ParCompilator/ParCompilatorStrings.hpp"
 
 class ParHeader : public PartOfPar
 {
@@ -19,8 +21,8 @@ public:
 
     void ReadFrom(BinFile& bin_file)
     {
-        this->m_cpp_file << "struct ParHeader" << std::endl
-                         << "{" << std::endl;
+        this->m_cpp_file << CompilatorValueTypes::c_struct_type_str << " ParHeader" << std::endl
+                         << '{' << std::endl;
 
 
         uint32_t time;
@@ -31,7 +33,13 @@ public:
         uint8_t header_string_len = static_cast<uint8_t>(header_string.length());
         this->m_cpp_file.WriteTrivialValue(1, "header_string_length", header_string_len);
 
-        this->m_cpp_file << "\tchar header_string[header_string_length] = \"" << header_string << "\";" << std::endl << std::endl;
+        this->m_cpp_file << '\t'
+                         << CompilatorValueTypes::c_char_type_str
+                         << " header_string[header_string_length] = \""
+                         << header_string
+                         << "\";"
+                         << std::endl
+                         << std::endl;
 
         //GUID SEPARATOR - start
         uint32_t parameters_version_start;
@@ -67,7 +75,17 @@ public:
 
         //NUMBER OF SECTIONS
         bin_file.ReadValue(this->m_number_of_sections);
-        this->m_cpp_file << std::endl << "\tuint64_t number_of_sections = count();" << std::endl << "};";
+        this->m_cpp_file << std::endl
+                         << '\t'
+                         << CompilatorValueTypes::c_uint64_t_type_str
+                         << ' '
+                         << CompilatorStrings::number_of_str
+                         << ParCompilatorStrings::sections_str
+                         << " = "
+                         << CompilatorStrings::count_fn_str
+                         << ';'
+                         << std::endl
+                         << "};";
         //----------------
     }
 

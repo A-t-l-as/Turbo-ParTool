@@ -236,7 +236,7 @@ void Object::ReadFrom(BinFile& bin_file)
     bin_file.ReadValue(research_switch);
 
     this->m_cpp_file
-        << "struct " << this->m_obj_name << endl
+        << CompilatorValueTypes::c_struct_type_str << " " << this->m_obj_name << endl
         << "{" << endl;
 
     this->m_cpp_file.WriteString(1, "obj_name", this->m_obj_name);
@@ -249,7 +249,12 @@ void Object::ReadFrom(BinFile& bin_file)
     }
         
     this->m_logic_table_bits = bin_file.ReadLogicTable();
-    this->m_cpp_file << "\tbool classID_array[] = {" << this->m_logic_table_bits << "};" << endl;
+    this->m_cpp_file << '\t'
+                     << CompilatorValueTypes::c_bool_type_str
+                     << " classID_array[] = {"
+                     << this->m_logic_table_bits
+                     << "};"
+                     << endl;
 
     this->CheckClassIdAndCorrect(bin_file);
 

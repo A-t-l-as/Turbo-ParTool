@@ -39,10 +39,8 @@ public:
 
 			this->m_number_of_obj_in_section = input_file.CountOccurrencesOfText("struct ") - 1;
 
-            //input_file.DeleteContrCharAndPutToCleanFileVector();
             input_file.CleanCppFileBufferFromContrChars();
 
-			//const vector <char>& clean_file = input_file.GetCleanFileBuffer();
 			CompileCppFileToBin(input_file.GetCleanFileBuffer());
 		}
 	}
@@ -68,7 +66,7 @@ protected:
         // This part is performed once per file.
         if (!this->m_special_function_lock)
         {
-            if (arg_value == CompilatorStrings::count_fn_str && arg_name.starts_with( ParCompilatorStrings::number_of_str ))
+            if (arg_value == CompilatorStrings::count_fn_str && arg_name.starts_with( CompilatorStrings::number_of_str ))
             {
                 // Number of objs
                 if (arg_name.ends_with( ParCompilatorStrings::objects_str ))

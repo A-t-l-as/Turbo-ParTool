@@ -4,6 +4,8 @@
 #include "File/BinFile.hpp"
 #include "File/CppFile.hpp"
 #include "PartOfPar.hpp"
+#include "../ParCompilator/ParCompilatorStrings.hpp"
+#include "Compilator/CompilatorStrings.hpp"
 
 class SectionHeader : public PartOfPar
 {
@@ -37,13 +39,31 @@ public:
         bin_file.MoveOverBy(-binary_string_length);
 
 
-        this->m_cpp_file << "struct Section_" << this->m_id << "_" << this->m_section_name << "_Header" << std::endl
-                         << "{" << std::endl;
+        this->m_cpp_file << CompilatorValueTypes::c_struct_type_str
+                         << " Section_"
+                         << this->m_id
+                         << '_'
+                         << this->m_section_name
+                         << "_Header"
+                         << std::endl
+                         << '{'
+                         << std::endl;
 
 
         this->m_cpp_file.WriteUniqueKeyWithConst<uint32_t>(1, "race", race_unique_key, this->m_list_of_race_masks);
         this->m_cpp_file.WriteTrivialValue(1, "flag", flag);
-        this->m_cpp_file << "\tuint32_t number_of_objects = count();" << std::endl << "};" << std::endl << std::endl;
+        this->m_cpp_file << '\t'
+                         << CompilatorValueTypes::c_uint32_t_type_str
+                         << ' '
+                         << CompilatorStrings::number_of_str
+                         << ParCompilatorStrings::objects_str
+                         << " = "
+                         << CompilatorStrings::count_fn_str
+                         << ';'
+                         << std::endl
+                         << "};"
+                         << std::endl
+                         << std::endl;
 
     }
 

@@ -28,7 +28,8 @@ public:
 
         if (arg_error_handler == Globals::success_code)
         {
-            const std::string order_file_name = "section" + std::string(CompilatorStrings::order_txt_rest);
+            const std::string order_file_name =
+                ParCompilatorStrings::section_str + std::string(CompilatorStrings::order_txt_rest);
 
             ParCompilatorHashMaps par_file_hash_maps;
             par_file_hash_maps.Init();

@@ -3,10 +3,9 @@
 
 namespace ParCompilatorStrings
 {
-    constexpr char number_of_str[] = "number_of_";
-
     constexpr char objects_str[] = "objects";
 
+    constexpr char section_str[]  = "section";
     constexpr char sections_str[] = "sections";
 
     constexpr char par_header_section_name_str[] = "par_header";

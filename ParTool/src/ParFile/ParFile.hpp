@@ -50,7 +50,17 @@ public:
             single_par_section.ReadFrom(this->m_par_file);
             single_par_section.WriteObjNamesListToCppFileStream(this->m_obj_names_list);
 
-            const std::string single_section_name = "section_" + std::to_string(i) + "_" + single_par_section.GetSectionName();
+            const std::string single_section_name =
+                std::string(ParCompilatorStrings::section_str)
+                +
+                '_'
+                +
+                std::to_string(i)
+                +
+                '_'
+                +
+                single_par_section.GetSectionName();
+
             section_order_file << single_section_name << std::endl;
 
             const std::string single_section_file_name = single_section_name + Formats::cpp_format_str_with_dot;

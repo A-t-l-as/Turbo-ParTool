@@ -48,7 +48,7 @@ public:
             exit(EXIT_FAILURE);
         }
 
-        if (input_par_file_path.extension().string() != ".par" )
+        if (input_par_file_path.extension().string() != Formats::par_format_str_with_dot )
         {
             CONSOLE_OUT.PrintLn("The specified file is not a .par file. The program terminates with an error.");
             exit(EXIT_FAILURE);

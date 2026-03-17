@@ -14,8 +14,8 @@ public:
 
     void ReadFrom(BinFile& bin_file)
     {
-        this->m_cpp_file << "struct EndOfPar" << std::endl
-                         << "{" << std::endl;
+        this->m_cpp_file << CompilatorValueTypes::c_struct_type_str << " EndOfPar" << std::endl
+                         << '{' << std::endl;
 
         uint32_t var_field_0 = 0;
         std::array<uint32_t, 5> var_fields = {};
