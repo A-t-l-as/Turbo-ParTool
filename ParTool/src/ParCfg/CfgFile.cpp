@@ -52,7 +52,7 @@ void CfgFile::InitializeHashMap()
     }
 
     for (size_t i = 0; i < CfgFileUtils::number_of_value_types; ++i)
-        m_config_en_value_types_hash_map[CfgFileUtils::value_types[i]] = static_cast<CfgFileUtils::en_cfg_value_types>(i);
+        m_config_en_value_types_hash_map[CfgFileUtils::value_types[i]] = static_cast<CfgFileUtils::EnCfgValueTypes>(i);
 
 }
 
@@ -137,14 +137,14 @@ void CfgFile::PrintSwitchInfo(const string& value_type, bool value)
 
 void CfgFile::InitializeSwitches(const string& value_type, const string& value)
 {
-    CfgFileUtils::en_cfg_value_types arg_en_value_type = this->m_config_en_value_types_hash_map[value_type];
+    CfgFileUtils::EnCfgValueTypes arg_en_value_type = this->m_config_en_value_types_hash_map[value_type];
     bool boolean_value_from_str = this->m_config_values_hash_map[value];
 
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_invalid)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_invalid)
         return;
 
     // moveableFlags
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_moveableFlags)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_moveableFlags)
     {
         this->m_config_switches.moveable_flags_switch = boolean_value_from_str;
 
@@ -154,7 +154,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // plugType
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_plugType)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_plugType)
     {
         this->m_config_switches.plug_type_switch = boolean_value_from_str;
 
@@ -164,7 +164,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // slotType
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_slotType)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_slotType)
     {
         this->m_config_switches.slot_type_switch = boolean_value_from_str;
 
@@ -174,7 +174,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // storeableFlags
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_storeableFlags)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_storeableFlags)
     {
         this->m_config_switches.storeable_flags_switch = boolean_value_from_str;
 
@@ -184,7 +184,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // RPGUnitFlags
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_RPGUnitFlags)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_RPGUnitFlags)
     {
         this->m_config_switches.rpg_unit_flags_switch = boolean_value_from_str;
 
@@ -194,7 +194,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // artefactMask
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_artefactMask)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_artefactMask)
     {
         this->m_config_switches.artefact_mask_switch = boolean_value_from_str;
 
@@ -204,7 +204,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // repairerFlags
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_repairerFlags)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_repairerFlags)
     {
         this->m_config_switches.repairer_flags_switch = boolean_value_from_str;
 
@@ -214,7 +214,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // bridgeBordersMask
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_bridgeBordersMask)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_bridgeBordersMask)
     {
         this->m_config_switches.bridge_borders_mask_switch = boolean_value_from_str;
 
@@ -224,7 +224,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // shadowType
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_shadowType)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_shadowType)
     {
         this->m_config_switches.shadow_type_switch = boolean_value_from_str;
 
@@ -234,7 +234,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // targetType
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_targetType)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_targetType)
     {
         this->m_config_switches.target_type_switch = boolean_value_from_str;
 
@@ -244,7 +244,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // lookRoundTypeMask
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_lookRoundTypeMask)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_lookRoundTypeMask)
     {
         this->m_config_switches.look_round_type_mask_switch = boolean_value_from_str;
 
@@ -254,7 +254,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // passiveMask
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_passiveMask)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_passiveMask)
     {
         this->m_config_switches.passive_mask_switch = boolean_value_from_str;
 
@@ -264,7 +264,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // buildBuildingFlags
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_buildBuildingFlags)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_buildBuildingFlags)
     {
         this->m_config_switches.build_building_flags_switch = boolean_value_from_str;
 
@@ -274,7 +274,7 @@ void CfgFile::InitializeSwitches(const string& value_type, const string& value)
     }
 
     // panelPos
-    if (arg_en_value_type == CfgFileUtils::en_cfg_value_types::e_panelPos)
+    if (arg_en_value_type == CfgFileUtils::EnCfgValueTypes::e_panelPos)
     {
         this->m_config_switches.panel_pos_switch = boolean_value_from_str;
 

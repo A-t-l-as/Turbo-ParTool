@@ -11,7 +11,7 @@ public:
     ParImporterApp()
     {}
 
-    void Run(int my_argc, char* my_argv[]) override
+    int Run(int my_argc, char* my_argv[]) override
     {
         const int correct_number_of_args = 3;
 
@@ -51,6 +51,8 @@ public:
             exit(EXIT_FAILURE);
         }
 
+
+        return EXIT_SUCCESS;
     }
 
 

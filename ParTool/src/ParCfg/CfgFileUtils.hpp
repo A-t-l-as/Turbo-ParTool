@@ -4,7 +4,7 @@
 #include <cstddef>
 namespace CfgFileUtils
 {
-    enum en_cfg_value_types
+    enum class EnCfgValueTypes
     {
         e_moveableFlags,
         e_plugType,

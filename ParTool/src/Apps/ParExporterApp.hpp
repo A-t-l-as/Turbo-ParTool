@@ -18,7 +18,7 @@ public:
     ~ParExporterApp()
     {}
 
-    void Run(int my_argc, char* my_argv[]) override
+    int Run(int my_argc, char* my_argv[]) override
     {
         const unsigned int correct_number_of_args = 3;
 
@@ -76,6 +76,7 @@ public:
 
         CONSOLE_OUT.PrintLn("Decompilation of file ", input_par_file_path, " completed successfully!");
 
+        return EXIT_SUCCESS;
     }
 
 

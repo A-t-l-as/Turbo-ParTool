@@ -57,7 +57,7 @@ protected:
     (
         std::string& arg_instruction,
         std::string& arg_value_type,
-        Enums::value_types_enum& arg_en_value_type,
+        Enums::ENCompilatorValueTypes& arg_en_value_type,
         std::string& arg_name,
         std::string& arg_value
     )

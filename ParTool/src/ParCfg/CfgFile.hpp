@@ -28,7 +28,7 @@ private:
 	ConfigSwitches m_config_switches = {};
 
 	std::unordered_map<std::string, bool> m_config_values_hash_map = {};
-	std::unordered_map<std::string, CfgFileUtils::en_cfg_value_types> m_config_en_value_types_hash_map = {};
+    std::unordered_map<std::string, CfgFileUtils::EnCfgValueTypes> m_config_en_value_types_hash_map = {};
 };
 
 #endif // !CFG_FILE_H
