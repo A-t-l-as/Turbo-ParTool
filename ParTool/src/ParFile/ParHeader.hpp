@@ -29,17 +29,8 @@ public:
         bin_file.ReadValue(time);
         this->m_cpp_file.WriteTime32(1, "time", time);
 
-        std::string header_string = bin_file.ReadSimpleString();
-        uint8_t header_string_len = static_cast<uint8_t>(header_string.length());
-        this->m_cpp_file.WriteTrivialValue(1, "header_string_length", header_string_len);
-
-        this->m_cpp_file << '\t'
-                         << CompilatorValueTypes::c_char_type_str
-                         << " header_string[header_string_length] = \""
-                         << header_string
-                         << "\";"
-                         << std::endl
-                         << std::endl;
+        std::string header_string = bin_file.ReadShortString();
+        this->m_cpp_file.WriteShortString(1, "header_string", header_string);
 
         //GUID SEPARATOR - start
         uint32_t parameters_version_start;
