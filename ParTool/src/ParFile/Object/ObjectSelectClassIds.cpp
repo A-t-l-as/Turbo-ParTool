@@ -3239,6 +3239,7 @@ void Object::CheckIfItIsAMaskLabel(BinFile& bin_file, const string& label)
     uint8_t temp_uint8_val = 0;
     uint16_t temp_uint16_val = 0;
     uint32_t temp_val = 0;
+    float    temp_float_val = 0.0f;
 
     array<uint8_t, sizeof(uint32_t) - 1> temp_uint8_array_3 = {};
     array<uint8_t, sizeof(uint32_t)> temp_uint8_array_4 = {};
@@ -3733,7 +3734,29 @@ void Object::CheckIfItIsAMaskLabel(BinFile& bin_file, const string& label)
         return;
     }
 
+    if (
+        (
+            label == "posX"
+            ||
+            label == "posY"
+            ||
+            label == "posZ"
+            ||
+            label == "posAlpha"
+            ||
+            label == "posBeta"
+        )
+        &&
+        (m_classid == OTHER_CLASS_ID_MESH_BUTTON_VIEW_PARAMS))
+    {
+        bin_file.ReadValue(temp_float_val);
+        this->m_cpp_file.WriteFloatValue(1, label, temp_float_val);
+
+        return;
+    }
     
+
+
     bin_file.ReadValue(temp_val);
     this->m_cpp_file.WriteTrivialValue(1, label, temp_val);
 
